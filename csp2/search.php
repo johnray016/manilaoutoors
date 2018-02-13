@@ -3,7 +3,7 @@
 	require 'connection.php';
 	session_start();
 
-	$search = strtolower($_POST['search']);
+	$search = strtolower(mysqli_real_escape_string($conn, $_POST['search']));
 	
 
 	$sql = "SELECT * FROM products WHERE product_name LIKE '%$search%' LIMIT 10";

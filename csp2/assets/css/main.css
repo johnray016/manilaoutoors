@@ -1038,10 +1038,9 @@ div.search-box-container div {
 	left: 0;
 	z-index: 4000;
 	background: white;
-	font-size: 1em;
+	font-size: 0.9em;
 	border: 1px solid grey;
 	border-top: none;
-	display: none;
 }
 div.search-box-container li {
 	list-style: none;
@@ -1049,6 +1048,9 @@ div.search-box-container li {
 }
 div.search-box-container a li {
 	color: #231f20; /* Black */
+}
+div.search-box-container a {
+	font-family: 'Nunito', sans-serif;
 }
 div.search-box-container img {
 	height: 2em;

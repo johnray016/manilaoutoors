@@ -128,6 +128,16 @@ $(document).ready(function(){
 			},
 			success: function (data) {
 				$('.productTable').load(' .productTable');
+				console.log(index);
+				console.log(sku);
+				console.log(productName);
+				console.log(shortDescription);
+				console.log(longDescription);
+				console.log(features);
+				console.log(price);
+				console.log(quantity);
+				console.log(metaTitle);
+				console.log(metaDescription);
 			}
 		})
 	});
@@ -157,15 +167,9 @@ $(document).ready(function(){
 				search: search
 			},
 			success: function(data) {
-				$("#searchResult").css("display", "block");
 				$('#searchResult').html(data);
 			}
 		});
-	});
-
-	//Hide div of Search Result when click outside
-	$(document).click(function () {
-	    $('#searchResult').hide();
 	});
 })
 

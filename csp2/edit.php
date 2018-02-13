@@ -25,6 +25,6 @@ $sql = "UPDATE products SET
 		meta_description = '$meta_description',
 		meta_keyword = '$meta_keyword'
 		WHERE product_ID='$index'";
-mysqli_query($conn,$sql) or die(mysqli_error($conn
+mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
 ?>
