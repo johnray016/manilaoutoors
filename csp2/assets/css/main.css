@@ -69,8 +69,21 @@ i.fa-arrow-up {
 	color: rgb(255, 255, 255);
 }
 
-
-
+/*********************
+* notification
+*********************/
+div.notification {
+	position: fixed;
+	bottom: 10px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	left: 50%;
+	transform: translateX(-50%);
+}
+div.notification span {	
+	font-size: 1em;
+}
 /*********************
 * NAVIGATION
 *********************/
@@ -996,6 +1009,50 @@ div.orders li {
 	list-style: none!important;
 }
 
+div.orders li {	
+	list-style: none!important;
+}
+
+/*********************
+* order_success.php
+*********************/
+div.order-sucess-container {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	min-height: 40vh;
+}
+
+/*********************
+* Search bar
+*********************/
+div.search-box-container {
+	position: relative;
+}
+div.search-box-container div {
+	position: absolute;
+	height: auto;
+	width: 100%;
+	top: 44px;
+	left: 0;
+	z-index: 4000;
+	background: white;
+	font-size: 1em;
+	border: 1px solid grey;
+	border-top: none;
+	display: none;
+}
+div.search-box-container li {
+	list-style: none;
+	padding: 0 0.5em;
+}
+div.search-box-container a li {
+	color: #231f20; /* Black */
+}
+div.search-box-container img {
+	height: 2em;
+}
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
 
@@ -1012,8 +1069,12 @@ div.orders li {
 p {
 	font-size: 16px;
 }
-
-
+	/*********************
+	* NOTIFICATION
+	*********************/
+	div.notification span {	
+		font-size: 2em;
+	}
 /*********************
 * NAVIGATION
 *********************/
@@ -1316,7 +1377,7 @@ p {
 *********************/
 	
 	div.banner-caption {
-	    font-style: oblique;nt-size: 1.5em;
+	    font-style: oblique;font-size: 1.5em;
 	}    	
 	div.banner1 {			
     	text-align: left;
@@ -1618,9 +1679,12 @@ p {
 		grid-gap: 1em;
 	}
 	/*********************
-	* my_account.php
+	* search bar
 	*********************/
-	
+	div.search-box-container div {
+	width: 93.4%;
+	top: 67px;
+	}
 }
 
 /* Large Devices, Wide Screens */

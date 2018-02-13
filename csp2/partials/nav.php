@@ -13,8 +13,9 @@ require 'connection.php';
         </div>
 
         <div class="search-box-container">
-          <input type="text" class="search-box" placeholder="Search for outdoor gears">
+          <input type="text" class="search-box" placeholder="Search for outdoor gears" id="search">
           <i class="fa fa-search" aria-hidden="true"></i>
+          <div id="searchResult"></div>
         </div> 
         
         <div class="nav-button-container">
@@ -32,7 +33,7 @@ require 'connection.php';
                        </ul> 
                     </div>
               </li>' :
-              '<li id="login-toggle"><span class="login-text"><i class="fa fa-sign-in aria-hidden="true"></i> SIGN IN <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+              '<li id="login-toggle"><span class="login-text"><i class="fa fa-sign-in" aria-hidden="true"></i> SIGN IN <i class="fa fa-angle-down" aria-hidden="true"></i></span>
                     <div id="login-menu">
                        <ul id="login-menu-box">
                          <form method="POST" action="authenticate.php">
