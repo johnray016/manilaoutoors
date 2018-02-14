@@ -52,7 +52,8 @@ function display_content(){
 					    </div>
 					    <div class="form-group phone">
 					      <label for="phone">Contact Number:</label><span class="red"> *</span>
-					      <input type="text" class="form-control" id="phone" name="phone">
+					      <input type="text" class="form-control" id="phone" name="phone" placeholder="+639350000000">
+                                              <span>Please use your country code for mobile number</span>
 					    </div>
 				    </div>
 				    <div class="address-details">

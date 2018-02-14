@@ -1,7 +1,9 @@
 <?php 
 	
 	require 'connection.php';
+	include "smsGateway.php";
 	session_start();
+
 	if (isset($_SESSION['username'])) {
 	    $username = $_SESSION['username'];
 	    $sql = "SELECT * FROM customers WHERE username = '$username'";
@@ -20,6 +22,15 @@
 		VALUES ('$index', '$orderQuantity', '$paymentDetails', '$invoice')";
 		mysqli_query($conn, $sql) or die (mysqli_error($conn));
 	}
+	
+	
+	$smsGateway = new SmsGateway('john@adventurefriends.com.au', 'chizmiz16');
+
+	$deviceID = 78684;
+	$number = $contact_number;
+	$message = 'Hello, '.$first_name.', Thank you for placing your order here in Manila Outdoors. Your total payment is '.number_format($totalPrice, 2);
+
+	$result = $smsGateway->sendMessageToNumber($number, $message, $deviceID);
 	
 	unset($_SESSION['cart']);	
 	header('location: order-success')

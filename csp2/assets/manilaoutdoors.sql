@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2018 at 07:45 AM
+-- Generation Time: Feb 14, 2018 at 02:44 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -107,7 +107,7 @@ CREATE TABLE `customers` (
   `province` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `contact_number` varchar(11) NOT NULL
+  `contact_number` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `email`, `username`, `password`, `street_address`, `barangay`, `city`, `province`, `country`, `status`, `contact_number`) VALUES
-(1, 'John Ray', 'Pantaleon', 'john@example.com', 'johnray016', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '744 Tantiongco St.', 'San Guillermo', 'Morong', 'Rizal', 'Philippines', 'active', '09353137125'),
+(1, 'John Ray', 'Pantaleon', 'john@example.com', 'johnray016', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '744 Tantiongco St.', 'San Guillermo', 'Morong', 'Rizal', 'Philippines', 'active', '+639353137125'),
 (2, 'Juan', 'Dela Cruz', 'example@yahoo.com', 'user1', 'f0578f1e7174b1a41c4ea8c6e17f7a8a3b88c92a', '733 Tantiongco St. ', 'San Guillermo', 'Morong', 'Rizal', 'Philippines', 'active', '0123456789'),
 (3, 'Pedro', 'Penduko', 'pedropenduko@gmail.com', 'pedro', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '222 Maligaya. St', 'San Jose', 'Antipolo', 'Rizal', 'Philippines', 'active', '0123456789'),
 (4, 'Maria', 'Ligaya', 'marie@hotmail.com', 'Maria', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '233 R. Mata St.', 'May-iba', 'Teresa', 'Rizal', 'Philippines', 'active', '09201459837');
@@ -158,7 +158,19 @@ INSERT INTO `orders` (`id`, `product_id`, `order_qty`, `payment_id`, `invoice_nu
 (79, 10, 2, 2, 10000006),
 (80, 36, 1, 2, 10000006),
 (81, 45, 3, 2, 10000006),
-(82, 49, 1, 2, 10000006);
+(82, 49, 1, 2, 10000006),
+(83, 39, 1, 2, 10000007),
+(84, 10, 1, 2, 10000008),
+(85, 12, 1, 1, 10000009),
+(86, 2, 1, 1, 10000010),
+(87, 12, 1, 1, 10000010),
+(88, 10, 26, 1, 10000010),
+(89, 56, 2, 3, 10000011),
+(90, 39, 1, 3, 10000012),
+(91, 10, 1, 1, 10000013),
+(92, 10, 1, 2, 10000014),
+(93, 12, 1, 2, 10000014),
+(94, 18, 1, 2, 10000014);
 
 -- --------------------------------------------------------
 
@@ -182,10 +194,18 @@ INSERT INTO `order_details` (`invoice_number`, `customer_id`, `total`, `date_ord
 (10000000, 1, '12900.00', '2018-02-01 12:23:38', 'COMPLETED'),
 (10000001, 2, '28500.00', '2018-02-01 12:24:34', 'COMPLETED'),
 (10000002, 1, '37300.00', '2018-02-02 01:23:58', 'COMPLETED'),
-(10000003, 3, '29960.00', '2018-02-02 02:22:43', 'PENDING'),
-(10000004, 3, '30300.00', '2018-02-02 04:05:55', 'PENDING'),
-(10000005, 3, '3400.00', '2018-02-02 04:40:23', 'PENDING'),
-(10000006, 4, '45300.00', '2018-02-02 05:42:10', 'PENDING');
+(10000003, 3, '29960.00', '2018-02-02 02:22:43', 'COMPLETED'),
+(10000004, 3, '30300.00', '2018-02-02 04:05:55', 'COMPLETED'),
+(10000005, 3, '3400.00', '2018-02-02 04:40:23', 'COMPLETED'),
+(10000006, 4, '45300.00', '2018-02-02 05:42:10', 'COMPLETED'),
+(10000007, 1, '7000.00', '2018-02-05 04:56:12', 'COMPLETED'),
+(10000008, 1, '6500.00', '2018-02-07 07:29:03', 'COMPLETED'),
+(10000009, 1, '9800.00', '2018-02-07 07:44:18', 'COMPLETED'),
+(10000010, 1, '182000.00', '2018-02-09 04:43:40', 'COMPLETED'),
+(10000011, 1, '6400.00', '2018-02-09 05:45:00', 'PENDING'),
+(10000012, 1, '7000.00', '2018-02-14 01:35:03', 'PENDING'),
+(10000013, 1, '6500.00', '2018-02-14 01:39:25', 'PENDING'),
+(10000014, 1, '26100.00', '2018-02-14 01:42:47', 'PENDING');
 
 -- --------------------------------------------------------
 
@@ -297,7 +317,8 @@ INSERT INTO `products` (`product_ID`, `product_name`, `sku`, `short_description`
 (62, 'Ticket to the moon King Size Hammock - Orange / Light Grey', 'TMK3502', '<p>Ticket to the Moon make light travel hammocks of parachute silk. This breathable nylon dries fast and can be washed. The hammock is packed in a small pouch which is sewed on the hammock and can also be used to put small things in it.</p>', '<p>That is the freedom of today. No luxury, no time planner, only nature, your hammock and you. And if you are on the road \r\nyou appreciate leight luggage. That is why the Ticket to the Moon founder had the idea to create a light weight travel hammock. \r\nThe result are today\'s Ticket to the Moon travel hammocks made of parachute silk. This functional material is not only light but \r\nalso breathable, soft to the skin and washable. You can take this Ticket to the Moon light hammock everywhere, for the holidays, a weekend trip or on a boat for instance. Carrying bag included.</p>\r\n\r\n<strong><p class=\"orange\">Specifications:</p></strong>\r\n<p><strong>Load Capacity: </strong>200 kg - 440 lbs<br></p>\r\n<p><strong>Color: </strong>Orange / Light Grey<br></p>\r\n<p><strong>Weight: </strong>700 g/1.55 lbs<br></p>\r\n<p><strong>Dimensions: </strong>320 x 230 cm / 10.5 x 7.2 ft<br></p>\r\n', ' <strong><p class=\"orange\">Features:</p></strong>  <ul> <li>The parachute hammock was made by travellers for travellers. </li> <li>A comfortable sleep and ideal protection from insects and small reptiles. </li> <li>It can replace your tent: lightweight, strong, and foldable.</li> <li>The hammock sets up in less than a minute. </li> <li>Is rot-resistant and quick to dry (machine washable 30&deg;°C). </li> <li>Ideal for camping, trekking and any outdoor activities.</li> </ul>', '3800.00', 1, 'assets/img/products/ticket-to-the-moon-king-size-hammock-orange-light-grey.jpg', 'Ticket to the moon King Size Hammock - Orange / Light Grey', 'Ticket to the Moon make light travel hammocks of parachute silk. This breathable nylon dries fast and can be washed. ', 'hammock, ticket to the moon, king size, manila outdoors, sleeping gear, camping gear', 5, 4, '2018-01-27 21:56:33'),
 (63, 'Ticket to the moon Hammock Rope Set ', 'HTMNR', '<p>Set of two nautical ropes with knots &#40;2 x 2.4m&#41; Quality ropes are essential for a sturdy hammock that will last your adventures. </p>', '<p>The strong nautical ropes that support the Moon Hammock are easy to tie and untie and minimize the damage to trees. No need to worry about knots – these are already done so you can attach the hammock in a few seconds.</p>', '', '620.00', 20, 'assets/img/products/rope-set-ticket-to-the-moon-hammock.jpg', 'Ticket to the moon Hammock Rope Set ', 'The strong nautical ropes that support the Moon Hammock are easy to tie and untie and minimize the damage to trees.', 'ticket to the moon, hammock rope, rope, nautical rope', 5, 4, '2018-01-27 22:00:17'),
 (64, 'Ticket to the moon Mosquito Net- Black', 'TMMNETB', '<p>The only 100% protection against mosquito. Designed for a blissful mosquito-free sleep, it fits in any hammock that does not use a spreader bar. </p>', '<p>With a 81 holes/cm<sup>2</sup> netting, this mosquito net completely encloses your hammock and protects you from even the smallest biting insects. Tested in malaria zone, this accessory is highly recommended for travelers and backpackers. If there’s a downside to outdoor life it has to be bugs. Stepping into your Moon Hammock you escape the crawling bugs but what about the flying critters! No problem. The innovative Moon Net completely encloses your hammock protecting you without confining you as many bug nets do. Tested in a Malaria zone and featuring 81 hole/cm<sup>2</sup>, this is the only 100% protection against mosquitoes and is a must-have for travelers and backpackers.</p>', '', '2400.00', 9, 'assets/img/products/ticket-to-the-moon-mosquito-net-black.jpg', 'Ticket to the moon Mosquito Net- Black', 'Ticket to the moon Mosquito Net- Black is d esigned for a blissful mosquito-free sleep, it fits in any hammock that does not use a spreader bar. ', 'ticket to the moon, hammock net, mosquito net, camping net', 5, 4, '2018-01-27 22:02:58'),
-(65, 'Rabbit', 'Rabbit', 'Rabbit', 'Rabbit', 'Rabbit', '20.00', 223, 'assets/img/products/Rabbit1.jpg', 'Rabbit', 'Rabbit', 'Rabbit', 1, 0, '2018-01-27 22:03:37');
+(65, 'Rabbit', 'Rabbit', 'Rabbit', 'Rabbit', 'Rabbit', '20.00', 223, 'assets/img/products/Rabbit1.jpg', 'Rabbit', 'Rabbit', 'Rabbit', 1, 0, '2018-01-27 22:03:37'),
+(68, 'barney', 'barney', 'barney', 'barney', 'spongebob', '2.00', 2, 'assets/img/products/barney.jpg', 'barney', 'barney', 'barney', 1, 1, '2018-02-12 22:19:52');
 
 --
 -- Indexes for dumped tables
@@ -385,12 +406,12 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `invoice_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000007;
+  MODIFY `invoice_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000015;
 --
 -- AUTO_INCREMENT for table `payment_details`
 --
@@ -400,7 +421,7 @@ ALTER TABLE `payment_details`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 --
 -- Constraints for dumped tables
 --
